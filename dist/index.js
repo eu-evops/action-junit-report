@@ -70,7 +70,7 @@ function run() {
             }
             const pullRequest = github.context.payload.pull_request;
             const link = (pullRequest && pullRequest.html_url) || github.context.ref;
-            const conclusion = foundResults && testResult.annotations.length === 0
+            const conclusion = testResult.annotations.length === 0
                 ? 'success'
                 : 'failure';
             const status = 'completed';
