@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
 import * as github from '@actions/github'
-import {parseTestReports} from './testParser'
+import { parseTestReports } from './testParser'
 
 export async function run(): Promise<void> {
   try {
@@ -41,7 +41,7 @@ export async function run(): Promise<void> {
     const pullRequest = github.context.payload.pull_request
     const link = (pullRequest && pullRequest.html_url) || github.context.ref
     const conclusion: 'success' | 'failure' =
-      foundResults && testResult.annotations.length === 0
+      testResult.annotations.length === 0
         ? 'success'
         : 'failure'
     const status: 'completed' = 'completed'
